@@ -6,6 +6,7 @@ import com.sky.entity.Employee;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface EmployeeMapper {
@@ -21,4 +22,11 @@ public interface EmployeeMapper {
 
     //员工分页查询
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    //更新员工信息
+    void updateEmployee(Employee employee);
+
+    //根据id查询员工信息
+    @Select("select * from employee where id = #{id}")
+    Employee getEmployeeById(Long id);
 }
