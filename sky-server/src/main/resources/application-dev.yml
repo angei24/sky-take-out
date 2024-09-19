@@ -6,3 +6,8 @@ sky:
     database: sky
     username: root
     password: 123456
+  alioss:
+    endpoint:
+    bucket-name:
+    access-key-id:
+    access-key-secret:
