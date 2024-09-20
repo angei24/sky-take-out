@@ -12,4 +12,7 @@ public interface DishFlavorMapper {
     //新增菜品口味信息
     @AutoFill(value = OperationType.INSERT)
     void saveBatch(List<DishFlavor> flavors);
+
+    //根据菜品id批量删除菜品口味数据
+    void deleteByDishIds(List<Long> DishIds);
 }
