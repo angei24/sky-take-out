@@ -2,6 +2,7 @@ package com.sky.mapper;
 
 import com.sky.dto.ShoppingCartDTO;
 import com.sky.entity.ShoppingCart;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
@@ -21,4 +22,8 @@ public interface ShoppingCartMapper {
     //修改购物车菜品或套餐的分数份数
     @Update("update shopping_cart set number = #{number} where id = #{id}")
     void updateById(ShoppingCart cart);
+
+    //清空购物车
+    @Delete("delete from shopping_cart where user_id = #{userId}")
+    void cleanByUserId(Long userId);
 }
