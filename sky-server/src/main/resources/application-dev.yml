@@ -16,3 +16,6 @@ sky:
     port: 6379
     database: 0
   base-path: D:\WorkProject\sky-images\
+  wechat:
+    appid: wx1c57326a8a8f4fcc
+    secret: 1424980ab3fef930193de7a4c908613d

@@ -5,6 +5,7 @@ import com.sky.annotation.AutoFill;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Setmeal;
 import com.sky.enumeration.OperationType;
+import com.sky.vo.DishItemVO;
 import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -34,4 +35,10 @@ public interface SetmealMapper {
     //修改套餐基本信息
     @AutoFill(value = OperationType.UPDATE)
     void update(Setmeal setmeal);
+
+    //根据分类id查询套餐
+    List<Setmeal> list(Setmeal setmeal);
+
+    //根据套餐id查询套餐菜品
+    List<DishItemVO> getDishItemBySetmealId(Long setmealId);
 }
