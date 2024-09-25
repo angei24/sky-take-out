@@ -12,4 +12,8 @@ public interface UserMapper {
 
     //保存新用户
     void save(User user);
+
+    //根据用户id获取用户信息
+    @Select("select * from user where id = #{Id}")
+    User getById(Long Id);
 }
