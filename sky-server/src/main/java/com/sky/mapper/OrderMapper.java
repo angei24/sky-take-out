@@ -24,6 +24,9 @@ public interface OrderMapper {
     //用户历史订单分页查询
     Page<Orders> pageQuery(OrdersPageQueryDTO ordersPageQueryDTO);
 
+    //管理端订单查询
+    Page<Orders> adminPageQuery(OrdersPageQueryDTO ordersPageQueryDTO);
+
     //根据id查询订单
     @Select("select * from orders where id = #{id}")
     Orders getById(Long id);
