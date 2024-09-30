@@ -40,5 +40,5 @@ public interface OrderMapper {
     List<Orders> getByStatusAndTime(Integer status, LocalDateTime orderTime);
 
     //通过map查询每日营业额
-    Double getSumByMao(Map map);
+    Double getSumByMao(Map<String, Object> map);
 }

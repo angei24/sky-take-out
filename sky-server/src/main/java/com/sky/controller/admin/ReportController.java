@@ -3,6 +3,7 @@ package com.sky.controller.admin;
 import com.sky.result.Result;
 import com.sky.service.ReportService;
 import com.sky.vo.TurnoverReportVO;
+import com.sky.vo.UserReportVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @RestController
 @Api(tags = "管理端统计相关接口")
@@ -24,9 +25,18 @@ public class ReportController {
     @ApiOperation("指定日期销售额统计")
     @GetMapping("/turnoverStatistics")
     public Result<TurnoverReportVO> turnoverStatistics(
-            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDateTime begin,
-            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDateTime end) {
+            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
+            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end) {
         TurnoverReportVO reportVO = reportService.getTurnoverStatistics(begin, end);
+        return Result.success(reportVO);
+    }
+
+    @ApiOperation("指定日期用户统计")
+    @GetMapping("/userStatistics")
+    public Result<UserReportVO> userStatistics(
+            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
+            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end) {
+        UserReportVO reportVO = reportService.getUserStatistics(begin, end);
         return Result.success(reportVO);
     }
 }
