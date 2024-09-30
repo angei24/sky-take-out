@@ -80,7 +80,7 @@ public class OrderServiceImpl implements OrderService {
         orders.setPhone(addressBook.getPhone());
         orders.setUserId(userId);
         orders.setOrderTime(LocalDateTime.now());
-        orders.setCancelReason(addressBook.getConsignee());
+        orders.setConsignee(addressBook.getConsignee());
         orders.setNumber(String.valueOf(System.currentTimeMillis()));
         orders.setPayStatus(Orders.UN_PAID);
         orders.setStatus(Orders.PENDING_PAYMENT);
@@ -348,6 +348,8 @@ public class OrderServiceImpl implements OrderService {
             for (Orders order : page) {
                 OrderVO orderVO = new OrderVO();
                 BeanUtils.copyProperties(order, orderVO);
+                AddressBook address = addressBookMapper.getById(order.getAddressBookId());
+                orderVO.setAddress(address.getCityName()+address.getDistrictName()+address.getDetail());
                 String orderDishes = getOrderDishesStr(order);
                 orderVO.setOrderDishes(orderDishes);
                 list.add(orderVO);
