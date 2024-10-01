@@ -82,7 +82,7 @@
         </where>
         order by order_time desc
     </select>
-    <select id="getSumByMao" resultType="java.lang.Double" parameterType="java.util.Map">
+    <select id="getSumByMap" resultType="java.lang.Double" parameterType="java.util.Map">
         select sum(amount) from orders
         <where>
             <if test="begin != null">and order_time &gt; #{begin}</if>

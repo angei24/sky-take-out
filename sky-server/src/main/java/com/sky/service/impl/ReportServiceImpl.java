@@ -42,7 +42,7 @@ public class ReportServiceImpl implements ReportService {
             map.put("begin", beginTime);
             map.put("end", endTime);
             map.put("status", Orders.COMPLETED);
-            Double amount = orderMapper.getSumByMao(map);
+            Double amount = orderMapper.getSumByMap(map);
             if (amount == null)
                 amount = 0.0;
             amounts.add(amount);

@@ -42,7 +42,7 @@ public interface OrderMapper {
     List<Orders> getByStatusAndTime(Integer status, LocalDateTime orderTime);
 
     //通过map查询每日营业额
-    Double getSumByMao(Map<String, Object> map);
+    Double getSumByMap(Map<String, Object> map);
 
     //查询订单数
     Integer getOrdersCount(Map<String, Object> map);
