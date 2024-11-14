@@ -61,6 +61,6 @@ sky:
     notify-url: ${sky.wechat.notify-url}
     refund-notify-url: ${sky.wechat.refund-notify-url}
   shop:
-    address: 北京市海淀区上地十街10号
+    address: 北京市xxx
   baidu:
     ak: xxx
